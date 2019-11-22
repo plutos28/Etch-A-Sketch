@@ -1,0 +1,10 @@
+body {
+    display: flex; 
+    justify-content: center;
+    font-family: sans-serif;
+}
+
+header {
+    font-size: 3.4em; 
+    margin-top: 1.5em;
+}
