@@ -1,9 +1,12 @@
-function createGrid(size) {
+function createGrid(size, gridWidth, gridHeight) {
     // todo: consider taking different rows and column sizes
     let grid = [];
-    // add size divs to grid 
+    // add size # of divs to grid 
     for(let i = 0; i < size; i++) {
         let gridItem = document.createElement('div');
+        gridItem.style.width = `${gridWidth / size}px`;
+        gridItem.style.height = `${gridHeight / size}px`;
+        gridItem.style.border = "2px solid red";
         grid.push(gridItem); 
     } 
 
@@ -16,7 +19,7 @@ const gridWidth = 320;
 const gridHeight = 240;
 
 // add all the divs from grid to gridContainer
-createGrid(gridSize).forEach((gridItem) => {
+createGrid(gridSize, gridWidth, gridHeight).forEach((gridItem) => {
     gridContainer.appendChild(gridItem);
 });
 
