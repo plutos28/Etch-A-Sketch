@@ -12,6 +12,8 @@ function createGrid(size) {
 
 const gridContainer = document.querySelector('#grid-container');
 const gridSize = 16;
+const gridWidth = 320;
+const gridHeight = 240;
 
 // add all the divs from grid to gridContainer
 createGrid(gridSize).forEach((gridItem) => {
@@ -20,8 +22,8 @@ createGrid(gridSize).forEach((gridItem) => {
 
 // todo: make borders of gridContainer show
 // and give it a width and height
-gridContainer.style.width = "640px";
-gridContainer.style.height = "640px";
+gridContainer.style.width = `${gridWidth}px`;
+gridContainer.style.height = `${gridHeight}px`;
 gridContainer.style.border = "3px solid hsl(0, 100%, 1%)";
 
 // todo: give gridContainer an apprioate sized box that looks nice
