@@ -1,11 +1,10 @@
-function createGrid(size, gridWidth, gridHeight) {
+function createGrid(size) {
     // todo: consider taking different rows and column sizes
     let grid = [];
-    // add size # of divs to grid 
+    // add size # of divs(gridItems) to grid 
     for(let i = 0; i < size; i++) {
+        // todo: move gridItem creation onto own function
         let gridItem = document.createElement('div');
-        gridItem.style.width = `${gridWidth / size}px`;
-        gridItem.style.height = `${gridHeight / size}px`;
         gridItem.style.border = "2px solid red";
         grid.push(gridItem); 
     } 
@@ -13,25 +12,22 @@ function createGrid(size, gridWidth, gridHeight) {
     return grid;
 }
 
-const gridContainer = document.querySelector('#grid-container');
-const gridSize = 16;
-const gridWidth = 320;
-const gridHeight = 240;
+function drawGrid(gridRows, gridColumns, gridWidth, gridHeight) {
+    const gridContainer = document.querySelector('#grid-container');
+    const gridSize = gridRows * gridColumns; // meaning gridRows by gridColumns box 
 
-// add all the divs from grid to gridContainer
-createGrid(gridSize, gridWidth, gridHeight).forEach((gridItem) => {
-    gridContainer.appendChild(gridItem);
-});
+    // add all the divs from grid to gridContainer
+    createGrid(gridSize).forEach((gridItem) => {
+        gridContainer.appendChild(gridItem);
+    });
 
-// todo: make borders of gridContainer show
-// and give it a width and height
-gridContainer.style.width = `${gridWidth}px`;
-gridContainer.style.height = `${gridHeight}px`;
-gridContainer.style.border = "3px solid hsl(0, 100%, 1%)";
+    gridContainer.style.width = `${gridWidth}px`;
+    gridContainer.style.height = `${gridHeight}px`;
+    gridContainer.style.border = "3px solid hsl(0, 100%, 1%)";
 
-// todo: give gridContainer an apprioate sized box that looks nice
-// make its borders appear nicely
+    gridContainer.style.display = "grid";
+    gridContainer.style.gridTemplateColumns = `repeat(${gridColumns}, 1fr)`;
+    gridContainer.style.gridTemplateRows = `repeat(${gridRows}, 1fr)`;
+}
 
-// todo: turn gridContainer into a css grid
-// make it 16 rows and 16 columns with the size being fractional(1fr)
-
+drawGrid(25, 25, 400, 400);
