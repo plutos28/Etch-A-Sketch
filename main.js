@@ -1,9 +1,9 @@
-function createGrid(size) {
+function createGrid(size, gridItemColors) {
     // todo: consider taking different rows and column sizes
     let grid = [];
     // add size # of divs(gridItems) to grid 
     for(let i = 0; i < size; i++) {
-        grid.push(createGridItem()); 
+        grid.push(createGridItem(gridItemColors)); 
     } 
 
     return grid;
