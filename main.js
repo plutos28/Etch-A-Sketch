@@ -18,6 +18,8 @@ function createGridItem(color=[0, 0, 0]) {
 }
 
 function drawGrid(gridRows=16, gridColumns=16, gridWidth=35, gridHeight=35) {
+    // add the gridItems to the dom through putting them
+    // in the gridContainer div and then draw it
     const gridContainer = document.querySelector('#grid-container');
     const gridSize = gridRows * gridColumns; // meaning gridRows by gridColumns box 
 
