@@ -3,26 +3,30 @@ function createGrid(size) {
     let grid = [];
     // add size # of divs(gridItems) to grid 
     for(let i = 0; i < size; i++) {
-        // todo: move gridItem creation onto own function
-        let gridItem = document.createElement('div');
-        gridItem.style.border = "2px solid red";
-        grid.push(gridItem); 
+        grid.push(createGridItem()); 
     } 
 
     return grid;
 }
 
-function drawGrid(gridRows, gridColumns, gridWidth, gridHeight) {
+function createGridItem(color=[0, 0, 0]) {
+    // todo: move gridItem creation onto own function
+    const gridItem = document.createElement('div');
+    gridItem.style.border = `1px solid hsl(${color[0]}, ${color[1]}%, ${color[2]}%)`;
+
+    return gridItem;
+}
+
+function drawGrid(gridRows=16, gridColumns=16, gridWidth=35, gridHeight=35) {
     const gridContainer = document.querySelector('#grid-container');
     const gridSize = gridRows * gridColumns; // meaning gridRows by gridColumns box 
 
-    // add all the divs from grid to gridContainer
     createGrid(gridSize).forEach((gridItem) => {
         gridContainer.appendChild(gridItem);
     });
 
-    gridContainer.style.width = `${gridWidth}px`;
-    gridContainer.style.height = `${gridHeight}px`;
+    gridContainer.style.width = `${gridWidth}em`;
+    gridContainer.style.height = `${gridHeight}em`;
     gridContainer.style.border = "3px solid hsl(0, 100%, 1%)";
 
     gridContainer.style.display = "grid";
@@ -30,4 +34,4 @@ function drawGrid(gridRows, gridColumns, gridWidth, gridHeight) {
     gridContainer.style.gridTemplateRows = `repeat(${gridRows}, 1fr)`;
 }
 
-drawGrid(25, 25, 400, 400);
+drawGrid();
