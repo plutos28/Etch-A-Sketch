@@ -1,7 +1,5 @@
 function createGrid(size, gridItemColors) {
-    // todo: consider taking different rows and column sizes
     let grid = [];
-    // add size # of divs(gridItems) to grid 
     for(let i = 0; i < size; i++) {
         grid.push(createGridItem(gridItemColors)); 
     } 
@@ -10,13 +8,11 @@ function createGrid(size, gridItemColors) {
 }
 
 function createGridItem(color=[0, 0, 0]) {
-    // todo: move gridItem creation onto own function
     const gridItem = document.createElement('div');
     gridItem.style.border = `1px solid hsl(${color[0]}, ${color[1]}%, ${color[2]}%)`;
 
-    // draw 
     gridItem.addEventListener('mouseenter', () => {
-        gridItem.style.backgroundColor = "black";
+        gridItem.style.backgroundColor = `hsl(${color[0]}, ${color[1]}%, ${color[2]}%)`;
     });
 
     return gridItem;
