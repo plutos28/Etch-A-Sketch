@@ -14,6 +14,11 @@ function createGridItem(color=[0, 0, 0]) {
     const gridItem = document.createElement('div');
     gridItem.style.border = `1px solid hsl(${color[0]}, ${color[1]}%, ${color[2]}%)`;
 
+    // draw 
+    gridItem.addEventListener('mouseenter', () => {
+        gridItem.style.backgroundColor = "black";
+    });
+
     return gridItem;
 }
 
