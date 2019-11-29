@@ -38,3 +38,21 @@ function drawGrid(gridRows=16, gridColumns=16, gridWidth=35, gridHeight=35) {
 }
 
 drawGrid();
+
+// todo: make button that will draw new grid and prompt user to make new grid
+const clearBtn = document.querySelector('#clear-grid');
+const gridContainer = document.querySelector('#grid-container');
+
+
+clearBtn.addEventListener('click', (e) => {
+    // clear the gridItem current colors
+    const rows = prompt('enter rows');
+    const columns = prompt('enter columns');
+
+    while (gridContainer.firstChild) {
+        gridContainer.removeChild(gridContainer.firstChild);
+    }
+
+    drawGrid(rows, columns);
+});
+
