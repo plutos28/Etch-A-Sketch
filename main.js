@@ -9,7 +9,7 @@ function createGrid(size, gridItemColors) {
 
 function createGridItem(color=[0, 0, 0]) {
     const gridItem = document.createElement('div');
-    gridItem.style.border = `1px solid hsl(${color[0]}, ${color[1]}%, ${color[2]}%)`;
+    gridItem.style.border = `1px solid hsl(0, 0%, 0%)`;
 
     gridItem.addEventListener('mouseenter', () => {
         gridItem.style.backgroundColor = `hsl(${color[0]}, ${color[1]}%, ${color[2]}%)`;
@@ -18,13 +18,13 @@ function createGridItem(color=[0, 0, 0]) {
     return gridItem;
 }
 
-function drawGrid(gridRows=16, gridColumns=16, gridWidth=35, gridHeight=35) {
+function drawGrid(gridRows=16, gridColumns=16, gridWidth=35, gridHeight=35, color=[0, 0, 0]) {
     // add the gridItems to the dom through putting them
     // in the gridContainer div and then draw it
     const gridContainer = document.querySelector('#grid-container');
     const gridSize = gridRows * gridColumns; // meaning gridRows by gridColumns box 
 
-    createGrid(gridSize).forEach((gridItem) => {
+    createGrid(gridSize, color).forEach((gridItem) => {
         gridContainer.appendChild(gridItem);
     });
 
@@ -49,6 +49,18 @@ function clearGrid() {
     drawGrid(rows, columns);
 }
 
+function getRandInt(max) {
+    return parseInt(Math.random() * max);
+}
+
+function getRandHSL() {
+    const hue = getRandInt(361);
+    const saturation = getRandInt(101);
+    const lightness = getRandInt(101);
+
+    return [hue, saturation, lightness];
+}
+
 function play() {
     // draw initial grid which is 16x16
     drawGrid();
@@ -56,6 +68,9 @@ function play() {
     // handle all special buttons (clear, blackColor, randomColor)
     const clearBtn = document.querySelector('#clear-grid');
     clearBtn.addEventListener('click', clearGrid);
+
+    const randomColorsBtn = document.querySelector('#random-colors');
+    randomColorsBtn.addEventListener('click', )
 }
 
 play();
