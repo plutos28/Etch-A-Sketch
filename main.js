@@ -62,11 +62,11 @@ function getRandHSL() {
 }
 
 function useRandomColor() {
-    const color = getRandHSL();
     const gridContainer = document.querySelector('#grid-container');
 
     gridContainer.childNodes.forEach((gridItem) => {
         gridItem.addEventListener('mouseenter', () => {
+            const color = getRandHSL();
             gridItem.style.backgroundColor = `hsl(${color[0]}, ${color[1]}%, ${color[2]}%)`;
         });
     });
