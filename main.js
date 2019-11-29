@@ -37,22 +37,25 @@ function drawGrid(gridRows=16, gridColumns=16, gridWidth=35, gridHeight=35) {
     gridContainer.style.gridTemplateRows = `repeat(${gridRows}, 1fr)`;
 }
 
-drawGrid();
-
-// todo: make button that will draw new grid and prompt user to make new grid
-const clearBtn = document.querySelector('#clear-grid');
-const gridContainer = document.querySelector('#grid-container');
-
-
-clearBtn.addEventListener('click', (e) => {
-    // clear the gridItem current colors
-    const rows = prompt('enter rows');
-    const columns = prompt('enter columns');
+function clearGrid() {
+    const gridContainer = document.querySelector('#grid-container');
+    const rows = prompt('Enter The Number of Rows You Want: ');
+    const columns = prompt('Enter The Number of Columns You Want: ');
 
     while (gridContainer.firstChild) {
         gridContainer.removeChild(gridContainer.firstChild);
     }
 
     drawGrid(rows, columns);
-});
+}
 
+function play() {
+    // draw initial grid which is 16x16
+    drawGrid();
+
+    // handle all special buttons (clear, blackColor, randomColor)
+    const clearBtn = document.querySelector('#clear-grid');
+    clearBtn.addEventListener('click', clearGrid);
+}
+
+play();
