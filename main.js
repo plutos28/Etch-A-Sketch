@@ -91,12 +91,23 @@ function useBlackColor() {
     });
 }
 
+function erase() {
+    const gridContainer = document.querySelector('#grid-container');
+
+    gridContainer.childNodes.forEach((gridItem) => {
+        gridItem.addEventListener('mouseenter', () => {
+            gridItem.style.backgroundColor = 'hsl(0, 0%, 100%)';
+        });
+    });
+}
+
+
+
 function play() {
     // draw initial grid which is 16x16
     drawGrid();
 
-    // handle all special buttons (clear, blackColor, randomColor)
-    // todo: add erase btn
+    // handle all special buttons (clear, randomColor, blackColor, erase)
     const clearBtn = document.querySelector('#clear-grid');
     clearBtn.addEventListener('click', clearGrid);
 
@@ -105,6 +116,9 @@ function play() {
 
     const tenPercentBlackBtn = document.querySelector('#ten-percent-black');
     tenPercentBlackBtn.addEventListener('click', useBlackColor);
+    
+    const eraseBtn = document.querySelector('#erase');
+    eraseBtn.addEventListener('click', erase);
 }
 
 play();
