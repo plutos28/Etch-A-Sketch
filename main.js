@@ -18,7 +18,7 @@ function createGridItem() {
     return gridItem;
 }
 
-function drawGrid(gridRows=16, gridColumns=16, gridWidth=35, gridHeight=35) {
+function drawGrid(gridRows=16, gridColumns=16, gridWidth=740, gridHeight=560) {
     // add the gridItems to the dom through putting them
     // in the gridContainer div and then draw it
     const gridContainer = document.querySelector('#grid-container');
@@ -28,8 +28,8 @@ function drawGrid(gridRows=16, gridColumns=16, gridWidth=35, gridHeight=35) {
         gridContainer.appendChild(gridItem);
     });
 
-    gridContainer.style.width = `${gridWidth}em`;
-    gridContainer.style.height = `${gridHeight}em`;
+    gridContainer.style.width = `${gridWidth}px`;
+    gridContainer.style.height = `${gridHeight}px`;
     gridContainer.style.border = "3px solid hsl(0, 100%, 1%)";
 
     gridContainer.style.display = "grid";
