@@ -72,17 +72,39 @@ function useRandomColor() {
     });
 }
 
+function useBlackColor() {
+    const gridContainer = document.querySelector('#grid-container');
+    let lightness = 90;
+
+    gridContainer.childNodes.forEach((gridItem) => {
+        gridItem.addEventListener('mouseenter', () => {
+            // make the lightness value decrease until 0(black) then reset 
+            const color = [0, 0, lightness]; 
+            lightness -= 10;
+
+            if(lightness <= 0) {
+                lightness = 90;
+            }
+
+            gridItem.style.backgroundColor = `hsl(${color[0]}, ${color[1]}%, ${color[2]}%)`;
+        });
+    });
+}
+
 function play() {
     // draw initial grid which is 16x16
     drawGrid();
 
     // handle all special buttons (clear, blackColor, randomColor)
+    // todo: add erase btn
     const clearBtn = document.querySelector('#clear-grid');
     clearBtn.addEventListener('click', clearGrid);
 
-    // need to change the way I change the pen's color
     const randomColorsBtn = document.querySelector('#random-colors');
     randomColorsBtn.addEventListener('click', useRandomColor);
+
+    const tenPercentBlackBtn = document.querySelector('#ten-percent-black');
+    tenPercentBlackBtn.addEventListener('click', useBlackColor);
 }
 
 play();
