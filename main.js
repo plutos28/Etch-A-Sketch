@@ -9,8 +9,7 @@ function createGrid(size) {
 
 function createGridItem() {
     const gridItem = document.createElement('div');
-    //gridItem.style.border = '1px solid hsl(0, 0%, 100%)';
-    gridItem.style.border = 'none';
+    gridItem.style.border = '1px solid hsl(0, 0%, 0%)';
 
     gridItem.addEventListener('mouseenter', () => {
         gridItem.style.backgroundColor = 'hsl(0, 0%, 0%)';
