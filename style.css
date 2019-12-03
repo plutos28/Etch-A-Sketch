@@ -25,6 +25,7 @@ main {
     padding: 0.2em 1.7em;
     transition: all ease-out 100ms;
     font-weight: normal;
+    border-radius: 10px;
 }
 
 .option-btn:hover {

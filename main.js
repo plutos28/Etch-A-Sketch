@@ -9,7 +9,8 @@ function createGrid(size) {
 
 function createGridItem() {
     const gridItem = document.createElement('div');
-    gridItem.style.border = '1px solid hsl(0, 0%, 0%)';
+    //gridItem.style.border = '1px solid hsl(0, 0%, 100%)';
+    gridItem.style.border = 'none';
 
     gridItem.addEventListener('mouseenter', () => {
         gridItem.style.backgroundColor = 'hsl(0, 0%, 0%)';
@@ -35,6 +36,8 @@ function drawGrid(gridRows=16, gridColumns=16, gridWidth=740, gridHeight=560) {
     gridContainer.style.display = "grid";
     gridContainer.style.gridTemplateColumns = `repeat(${gridColumns}, 1fr)`;
     gridContainer.style.gridTemplateRows = `repeat(${gridRows}, 1fr)`;
+
+    gridContainer.style.borderRadius = '10px';
 }
 
 function clearGrid() {
@@ -100,7 +103,6 @@ function erase() {
         });
     });
 }
-
 
 
 function play() {
